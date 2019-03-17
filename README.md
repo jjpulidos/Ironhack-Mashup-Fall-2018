@@ -2,7 +2,7 @@
 
 **Recommended resolution: 1224 px * 700 px**
 
-**Link Mashup (repl.it Deploy): repl.it/@jjpulidos/Juan-Pulido-Ironhacks-Project**
+[Link Mashup (repl.it Deploy)!](http://juan-pulido-ironhacks-project--jjpulidos.repl.co)
 
 **NOTE:** if the map is not with dark styles, put your google maps key on map.html for
 a better map visualization
