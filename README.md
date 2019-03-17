@@ -11,6 +11,8 @@ The next Images show every state of the Ironhack mashup:
 
 **Principal Page**
 
+![](https://i.imgur.com/lvt7rcX.png)
+
 ![](https://i.imgur.com/y6JCRWl.png)
 
 **Interactive JoyPlot d3 graphic about crimes in NY**
@@ -19,7 +21,7 @@ The next Images show every state of the Ironhack mashup:
 
 ![](https://i.imgur.com/GEMnPmO.png)
 
-**Techonlogies used** 
+**Technologies used** 
 
 ![](https://i.imgur.com/kgrpiHz.png)
 
