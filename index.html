@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="https://i.imgur.com/lPh2HUD.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="js/triangleEquations.js"></script>
+
+
+    <title>Is that my house?</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/isthatmyhouse.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top lucas" id="mainNav">
+    <div class="container">
+        <img src="https://i.imgur.com/iOp5u6N.png">
+        <a class="navbar-brand js-scroll-trigger" style="margin-left:1em; color: linear-gradient(#eeeeee, rgb(115, 12, 175));" id="pageName"> Is that my house ? </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" id="info" href="#about">Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" id="features" href="#projects">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" id="tech">Technologies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" id="goToMap" href="map.html">Map</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<div class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <h1 class="mx-auto my-0 text-uppercase">Is that my house ?</h1>
+            <h2 class="text-white-50 mx-auto mt-2 mb-5">IronHacks Project.</h2>
+            <a id="getStarted" class="btn btn-primary js-scroll-trigger">Get Started</a>
+        </div>
+    </div>
+</div>
+
+<!-- About Section -->
+<section id="info_scrolled" class="about-section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto pedro">
+                <h2 class="text-white mb-4">Easier than ever before!</h2>
+                <p class="text-white-50">
+                    We introduce to you this amazing tool made for students! It gonna help you choosing out a great place for living
+                    without any effort. for FREE
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="features_scrolled" class="projects-section bg-light">
+    <div class="container" style="position: relative">
+
+        <!-- Featured Project Row -->
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+            <div class="col-xl-8 col-lg-7" style="position: relative; top: -3.8em;">
+                <div id="graph" style="position: absolute; top: -245px; left: 2%; width: 90%; height: 58vh; box-shadow: 0 4px 10px black;">
+                    <p>Number of crimes 31 December 2015 group by boroughs and group by hours</p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-xl-4 col-lg-5" style="margin-bottom: 20em;">
+                <div class="featured-text text-center text-lg-left">
+                    <h4>Features</h4>
+                    <p class="text-white-100 mb-0" style="color: white">
+                        This tool is based on three differents topics: <br /><br />1. Affordability,
+                        because your economy its important to us. <br /><br />2. Security, nothing better than feeling
+                        comfortable in your home. <br /><br />3. Closeness, don't waste your time and money anymore for been
+                        far of your destination.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project One Row -->
+        <div class="row justify-content-center no-gutters mb-5 mb-lg-0" id="technologies">
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6" style="margin-top: 6em;">
+
+                <div class="bg-black text-center h-100 project">
+
+                    <div class="d-flex h-100" style="margin-top: 3em;">
+
+                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                            <img src="https://i.imgur.com/6gvxfMl.png">
+                            <h4 class="text-white">Google Maps Api</h4>
+
+                            <p class="mb-0 text-white-50">A powerful tool to know where i am at every second</p>
+
+                            <hr class="d-none d-lg-block mb-0 ml-0">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Two Row -->
+        <div class="row justify-content-center no-gutters">
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6 order-lg-first" style="margin: -18.75em 0 15em -2em">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-right">
+                            <img src="https://i.imgur.com/S3QZwvV.png">
+
+                            <h4 class="text-white">D3.js</h4>
+                            <p class="mb-0 text-white-50">An amazing graphic library from Javascrip for get more beautiful information</p>
+                            <hr class="d-none d-lg-block mb-0 mr-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer style="height: 5em; width: 100%; background: black; padding: 0;">
+    <div style="display: flex;  align-items: center; justify-content: center">
+
+        <i style="margin-top: 2em">Juan Jesús Pulido Sánchez - Universidad Nacional de Colombia</i>
+
+        <!--<img style="margin-top: 2em" src="https://i.imgur.com/uIbSRue.png">-->
+
+        <!--<img style="margin-top: 2em" src="https://i.imgur.com/1V081MP.png">-->
+
+
+        <!--<img style="margin-top: 2em" src="https://i.imgur.com/Zrw54iG.png">-->
+
+        <!--<img style="margin-top: 2em" src="https://i.imgur.com/SciZ74S.png">-->
+
+
+    </div>
+
+
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="js/router.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="js/isthatmyhouse.js"></script>
+<script src="js/joyplot.js"></script>
+
+
+</body>
+
+</html>

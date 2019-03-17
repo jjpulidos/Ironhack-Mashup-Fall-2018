@@ -1,0 +1,189 @@
+@media (min-width: 1440px) and (max-width: 2560px) {
+    .Components {
+        width: 100%;
+        height: 20%;
+        position: absolute;
+        bottom: 0;
+        background: rgba(25, 25, 25, 0.5);
+        z-index: 1;
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 2fr 2fr 1fr 4fr;
+        grid-template-columns: 2fr 2fr 1fr 4fr;
+        grid-gap: 1%; }
+    .Graphic {
+        width: 100%;
+        height: 150%;
+        text-align: center;
+        position: relative;
+        bottom: 7.2em;
+        margin-left: .5em; }
+    .Controllers {
+        width: 100%;
+        -ms-grid-columns: 3fr 2fr;
+        grid-template-columns: 3fr 2fr;
+        grid-gap: 1em;
+        position: relative; }
+    .Sliders {
+        padding: 1em;
+        padding-top: 1em;
+        height: 125%;
+        background: rgba(190, 190, 190, 0.9);
+        position: relative;
+        top: -3.7em;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        /*-ms-flex-pack: distribute;*/
+        justify-content: space-around; }
+    .Sliders a {
+        font-size: .8em;
+        font-weight: bolder;
+        margin: 0 0 0 0.2em; }
+    .Sliders .inGroup a {
+        padding: 1.4em; }
+    .AditionalFilters {
+        display: -ms-grid;
+        display: grid;
+       /* -ms-grid-columns: (1fr)[2];*/
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1em;
+        padding: .5em .8em .2em 2em;
+        height: 125%;
+        background: rgba(190, 190, 190, 0.9);
+        position: relative;
+        font-size: 1.8em;
+        top: -2.1em; }
+    .openGraphicContainer {
+        width: 36px;
+        height: 36px;
+        background: black;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border-radius: 6px;
+        -webkit-transition: 200ms ease-in-out;
+        -o-transition: 200ms ease-in-out;
+        transition: 200ms ease-in-out;
+        top: 30%;
+        left: 85%;
+        z-index: 10; }
+    .openGraphicContainer .iconGraph {
+        -webkit-transition: 200ms ease-in-out;
+        -o-transition: 200ms ease-in-out;
+        transition: 200ms ease-in-out;
+        color: white;
+        position: relative;
+        z-index: 100; }
+    .openGraphicContainer .iconGraph:hover {
+        cursor: pointer;
+        color: steelblue; }
+    .IconList {
+        height: 95%;
+        position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        top: 5%;
+        left: 6%;
+       /* -ms-flex-pack: distribute;*/
+        justify-content: space-around; }
+    .Table {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-shadow: 0 2px 1px white;
+        box-shadow: 0 2px 1px white; }
+    #tableWrapper {
+        width: 57.45em;
+        height: 16.8em;
+        background: rgba(0, 0, 0, 0.8);
+        position: fixed;
+        bottom: .4em;
+        right: .5em;
+        padding: 1em;
+        padding-top: 0;
+        overflow: auto; }
+    .aaa {
+        position: relative;
+        width: 100%;
+        height: 3em;
+        background: black;
+        left: -.45em;
+        top: -6.7em;
+        z-index: 40; }
+    .CSV_Button {
+        position: relative;
+        top: -3em;
+        right: -10em;
+        display: block;
+        margin: 30px auto;
+        padding: .5em;
+        overflow: hidden;
+        border-width: 0;
+        outline: none;
+        border-radius: 2px;
+        -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+        background-color: #A78949/*steelblue*/;
+        color: #ecf0f1;
+        -webkit-transition: background-color .3s;
+        -o-transition: background-color .3s;
+        transition: background-color .3s;
+    }
+    .CSV_Button:hover {
+        cursor: pointer;
+        background-color: #A78949
+    }
+    .IconOpen {
+        position: absolute;
+        top: .5em;
+        left: .5em;
+        color: white;
+        font-size: 10px;
+        -webkit-transition: 200ms ease-in-out;
+        -o-transition: 200ms ease-in-out;
+        transition: 200ms ease-in-out; }
+    .IconOpen .IconOpen:hover {
+        cursor: pointer;
+        color: steelblue; }
+    .ZeroStatusText {
+        color: white;
+        padding-top: 2.5em;
+        text-align: center; }
+    table {
+        width: 100%;
+        padding-bottom: 1em;
+        position: relative;
+        z-index: -10; }
+    table, th, td {
+        font-family: "Roboto Condensed", sans-serif;
+        color: black;
+        font-weight: bolder;
+        background-color: rgba(190, 190, 190, 0.9);
+        border-radius: 1px;
+        border-spacing: 50px 50px;
+        padding: 5px;
+        border: .5px solid #999999;
+        text-align: center; }
+    th {
+        color: #E79627;
+        font-weight: bolder; } }

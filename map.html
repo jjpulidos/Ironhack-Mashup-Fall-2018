@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Icon Page-->
+    <link rel="icon" href="https://i.imgur.com/lPh2HUD.png">
+    <!-- PreCompute Data Charging -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="./js/metaData.js"></script>
+
+    <script type="text/javascript" src="./js/metaData2.js"></script>
+
+    <!--<script type="text/javascript" src="./js/metaData3.js"></script>-->
+
+    <script type="text/javascript" src="./js/dataSetsCharge.js"></script>
+
+    <title>Map</title>
+
+
+
+
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/preloadScreen.css">
+    <link rel="stylesheet" href="./css/ComparisonLayout.css">
+    <link rel="stylesheet" href="./css/DistrictsInfo.css">
+
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+
+</head>
+
+<body>
+
+<div class="HideLayoutBtn" id="hideBtn" style="display: none;"><i class="material-icons " style="font-size: 2em;">map</i></div>
+<div id="goHome" class="GoHomeBtn" style="display: none;">Go Home</div>
+
+
+<div id="preloader">
+    <div id="loader"></div>
+</div>
+<h1 class="redir" id="redir" style="display: none;">Redirecting</h1>
+<div id="percent_container"></div>
+
+
+<div class="MainContainer" id="loaded_page" style="display: none">
+    <!--<div id="map"></div>-->
+    <!-- Map Container -->
+    <div id="googleMapContainer"></div>
+
+
+
+    <!-- Menu Desplegable -->
+
+
+
+    <div class="container2">
+        <div class="container">
+            <div id="navMenu" class="diamond">
+                <div id="mainRotCorrect" class="rotCorrect"> <a class="MenuTitle" style="color: white;">Menu (Click Me)</a> </div>
+            </div>
+            <div id="nav1" class="nav nav1 diamond" onclick="trafficOn()" title="Show Traffic Map">
+                <div class="rotCorrect"><i class="material-icons diamondIcon">directions_car</i></div>
+            </div>
+            <div id="nav3" class="nav nav3 diamond" onclick="bikeOn()" title="Show Bycicles Map">
+                <div class="rotCorrect"><i class="material-icons diamondIcon" id="icon_nav3">directions_bike</i></div>
+            </div>
+
+            <div id="nav2" class="nav nav2 diamond" onclick="transitOn()" title="Show Transit Map">
+                <div class="rotCorrect"><i class="material-icons diamondIcon">person</i></div>
+            </div>
+
+            <div id="nav4" class="nav nav4 diamond" onclick="heatMapActivation()" title="Show Crimes HeatMap">
+                <div class="rotCorrect"><svg class="fillinwhite svgDiamondIcon" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M7,5H23V9H22V10H16A1,1 0 0,0 15,11V12A2,2 0 0,1 13,14H9.62C9.24,14 8.89,14.22 8.72,14.56L6.27,19.45C6.1,19.79 5.76,20 5.38,20H2C2,20 -1,20 3,14C3,14 6,10 2,10V5H3L3.5,4H6.5L7,5M14,12V11A1,1 0 0,0 13,10H12C12,10 11,11 12,12A2,2 0 0,1 10,10A1,1 0 0,0 9,11V12A1,1 0 0,0 10,13H13A1,1 0 0,0 14,12Z" />
+                </svg></div>
+            </div>
+
+            <div id="nav5" class="nav nav5 diamond" onclick="distanceOn()" title="Show Distance Map as a Star Graph">
+                <div class="rotCorrect"><svg class="svgDiamondIcon" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M6.5,8.11C5.61,8.11 4.89,7.39 4.89,6.5A1.61,1.61 0 0,1 6.5,4.89C7.39,4.89 8.11,5.61 8.11,6.5V6.5A1.61,1.61 0 0,1 6.5,8.11M6.5,2C4,2 2,4 2,6.5C2,9.87 6.5,14.86 6.5,14.86C6.5,14.86 11,9.87 11,6.5C11,4 9,2 6.5,2M17.5,8.11A1.61,1.61 0 0,1 15.89,6.5C15.89,5.61 16.61,4.89 17.5,4.89C18.39,4.89 19.11,5.61 19.11,6.5A1.61,1.61 0 0,1 17.5,8.11M17.5,2C15,2 13,4 13,6.5C13,9.87 17.5,14.86 17.5,14.86C17.5,14.86 22,9.87 22,6.5C22,4 20,2 17.5,2M17.5,16C16.23,16 15.1,16.8 14.68,18H9.32C8.77,16.44 7.05,15.62 5.5,16.17C3.93,16.72 3.11,18.44 3.66,20C4.22,21.56 5.93,22.38 7.5,21.83C8.35,21.53 9,20.85 9.32,20H14.69C15.24,21.56 16.96,22.38 18.5,21.83C20.08,21.28 20.9,19.56 20.35,18C19.92,16.8 18.78,16 17.5,16V16M17.5,20.5A1.5,1.5 0 0,1 16,19A1.5,1.5 0 0,1 17.5,17.5A1.5,1.5 0 0,1 19,19A1.5,1.5 0 0,1 17.5,20.5Z" />
+                </svg></div>
+            </div>
+
+            <div id="nav6" class="nav nav6 diamond" onclick="galleriesFun()" title="Show Galleries">
+                <div class="rotCorrect"><i class="material-icons diamondIcon">brush</i></div>
+            </div>
+
+            <div id="nav7" class="nav nav7 diamond" onclick="farmersFun()" title="Show Farmers">
+                <div class="rotCorrect"><i class="material-icons diamondIcon">store</i></div>
+            </div>
+
+            <div id="nav8" class="nav nav8 diamond" title="Show Museums" onclick="museumsFun()">
+                <div class="rotCorrect"><i class="material-icons diamondIcon">account_balance</i></div>
+            </div>
+
+            <div id="nav9" class="nav nav9 diamond" onclick="subwaysFun()" title="Show Subways Entrances">
+                <div class="rotCorrect"><i class="material-icons diamondIcon">directions_subway</i></div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!---->
+
+
+
+    <div class="Components" id="components">
+        <!--<button id="heatMapActivation" onclick="heatMapActivation()" style="position: absolute; top: -20em; right: 5em">Este es un boton pa darle click</button>-->
+        <div class="Graphic" id="graphics">
+            <div class="openGraphicContainer" id="expandGraph"><i class="material-icons iconGraph">aspect_ratio</i></div>
+            <div id="graphInfo"><i id="infoIcon"></i></div>
+            <svg id="iso" width="95%" height="95%"></svg>
+            <div class="IsoGraphInfo" id="IsoGraphInfo" style="display: none;">
+                <p id="info_text" style="display: none;"> Isometric Bar Chart must be read carrefully, the districts with best positions in the top will be at the
+                    deeper part of the chart also the height of the bars will be proportional to the Total Points, this data behaviour
+                    reflects the Data Structure "Treemap" used for sorting the Data in the Isometric Chart.</p>
+            </div>
+        </div>
+
+
+        <div class="AditionalFilters">
+
+
+            <div class="FiltersSliders">
+                <div class="InputFiltersGroup inGroup">
+
+                    <input type="range" min="0" max="3" value="0" class="disabled" id="art_galleries">
+
+                </div>
+
+                <div class="InputFiltersGroup inGroup">
+
+                    <input type="range" min="0" max="3" value="0" class="disabled" id="farm_markets">
+                </div>
+
+                <div class="InputFiltersGroup inGroup">
+
+
+                    <input type="range" min="0" max="3" value="0" class="disabled" id="museums">
+                </div>
+
+                <div class="InputFiltersGroup inGroup">
+
+
+                    <input type="range" min="0" max="3" value="0" class="disabled" id="sub_entrances">
+                </div>
+            </div>
+
+
+
+
+            <div class="g1">
+                <i class="material-icons diamondIcon">brush</i>
+                <i class="material-icons diamondIcon">store</i>
+            </div>
+            <div class="g2">
+                <i class="material-icons diamondIcon">account_balance</i>
+                <i class="material-icons diamondIcon">directions_subway</i>
+            </div>
+
+
+            <div class="t1 txt">
+                <a> Art Galleries </a>
+            </div>
+            <div class="t3 txt">
+                <a> Farm Markets </a>
+            </div>
+            <div class="t2 txt">
+                <a> Museums </a>
+            </div>
+            <div class="t4 txt">
+                <a> Subway Entrances </a>
+            </div>
+
+
+            <div class="Compare" id="compare" onclick="radarChart(selectedDistricts)"><a> Compare </a></div>
+        </div>
+
+        <div class="Controllers">
+
+            <div class="Sliders" id="sliders">
+
+                <div class="inGroup">
+                    <a>Affordability</a>
+                    <input type="range" min="0" max="3" value="0" class="disabled" id="aff">
+                </div>
+
+                <div class="inGroup">
+                    <a>Security</a>
+                    <input type="range" min="0" max="3" value="0" class="disabled" id="sec">
+                </div>
+
+                <div class="inGroup">
+                    <a>Closeness</a>
+                    <input type="range" min="0" max="3" value="0" class="disabled" id="clo">
+                </div>
+
+            </div>
+
+
+        </div>
+        <button class="CSV_Button" onclick="download_csv(tmp)">Download CSV</button>
+        <i class="material-icons IconOpen" id="openTable">launch</i>
+        <div id="tableWrapper">
+
+
+
+
+
+            <!-- <div id="tableScroll">
+              <table>
+                <thead id="mainTableTitles">
+
+                </thead>
+                <tbody id="mainTableBody">
+
+                </tbody>
+              </table>
+            </div> -->
+
+        </div>
+
+    </div>
+
+
+    <!-- Layout de comparacion  -->
+    <div id="ComparisonLayout">
+        <div id="backbtn"> <a> </a> </div>
+        <div class="Left">
+
+
+            <div class="Sketch_Left">
+                <div class="InfoWrapper">
+                    <div class="PlainTab" id="P_tab">
+
+                    </div>
+
+                    <svg id="Orbital" style="display: none"></svg>
+                </div>
+
+                <div class="ChangeGraphBtn" id="space_btn">
+                    <div class="GraphBtn" onclick="orbitData(selectedDistricts)"><a> Go to Space </a></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="Middle">
+            <div class="FiltersBtns">
+          <span id="filter1" class="filter1 center"><svg class="distance_svg" viewBox="0 0 24 24">
+              <path fill="#fff" d="M6.5,8.11C5.61,8.11 4.89,7.39 4.89,6.5A1.61,1.61 0 0,1 6.5,4.89C7.39,4.89 8.11,5.61 8.11,6.5V6.5A1.61,1.61 0 0,1 6.5,8.11M6.5,2C4,2 2,4 2,6.5C2,9.87 6.5,14.86 6.5,14.86C6.5,14.86 11,9.87 11,6.5C11,4 9,2 6.5,2M17.5,8.11A1.61,1.61 0 0,1 15.89,6.5C15.89,5.61 16.61,4.89 17.5,4.89C18.39,4.89 19.11,5.61 19.11,6.5A1.61,1.61 0 0,1 17.5,8.11M17.5,2C15,2 13,4 13,6.5C13,9.87 17.5,14.86 17.5,14.86C17.5,14.86 22,9.87 22,6.5C22,4 20,2 17.5,2M17.5,16C16.23,16 15.1,16.8 14.68,18H9.32C8.77,16.44 7.05,15.62 5.5,16.17C3.93,16.72 3.11,18.44 3.66,20C4.22,21.56 5.93,22.38 7.5,21.83C8.35,21.53 9,20.85 9.32,20H14.69C15.24,21.56 16.96,22.38 18.5,21.83C20.08,21.28 20.9,19.56 20.35,18C19.92,16.8 18.78,16 17.5,16V16M17.5,20.5A1.5,1.5 0 0,1 16,19A1.5,1.5 0 0,1 17.5,17.5A1.5,1.5 0 0,1 19,19A1.5,1.5 0 0,1 17.5,20.5Z" />
+            </svg></span>
+                <span id="filter2" class="filter2 center"><svg class="security_svg" viewBox="0 0 24 24" onclick="heatMapActivation()">
+              <path fill="#fff" d="M7,5H23V9H22V10H16A1,1 0 0,0 15,11V12A2,2 0 0,1 13,14H9.62C9.24,14 8.89,14.22 8.72,14.56L6.27,19.45C6.1,19.79 5.76,20 5.38,20H2C2,20 -1,20 3,14C3,14 6,10 2,10V5H3L3.5,4H6.5L7,5M14,12V11A1,1 0 0,0 13,10H12C12,10 11,11 12,12A2,2 0 0,1 10,10A1,1 0 0,0 9,11V12A1,1 0 0,0 10,13H13A1,1 0 0,0 14,12Z" />
+            </svg></span>
+                <span id="filter3" class="filter3 center"><i style="font-size: 2.4em" class="material-icons size">attach_money</i></span>
+                <span id="filter4" class="filter4 center"><i style="font-size: 2.4em" class="material-icons size">account_balance</i></span>
+                <span id="filter5" class="filter5 center"><i style="font-size: 2.4em" class="material-icons size">brush</i></span>
+                <span id="filter6" class="filter6 center"><i style="font-size: 2.4em" class="material-icons size">store</i></span>
+                <span id="filter7" class="filter7 center"><i style="font-size: 2.4em" class="material-icons size">directions_subway</i></span>
+            </div>
+
+            <div class="Radar">
+                <svg id="RadarGraphSvg" width="100%" height="100%">
+
+                </svg>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="Right">
+            <div class="Sketch_Right">
+                <div class="InfoWrapper_right">
+                    <div class="PlainTab_right" id="P_tab2">
+
+                    </div>
+
+                    <svg id="Orbital2" style="display: none"></svg>
+                </div>
+
+                <div class="ChangeGraphBtn" id="plain_btn">
+                    <div class="GraphBtn"> <a>Go to Plain</a> </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!-- D3.Js -->
+<script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
+
+<script type="text/javascript" src="./js/HideLayout.js"></script>
+
+<script type="text/javascript" src="./js/Analytical.js"></script>
+
+<script type="text/javascript" src="./js/TableExpansion.js"></script>
+
+<script type="text/javascript" src="./js/Maps.js"></script>
+
+<script type="text/javascript" src="./js/main.js"></script>
+
+<script type="text/javascript" src="./js/router.js"></script>
+
+<script type="text/javascript" src="./js/Charts.js"></script>
+
+<script type="text/javascript" src="./js/GraphExpansion.js"></script>
+
+<script type="text/javascript" src="./js/ComparisonLayout.js"></script>
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?&libraries=visualization,geometry&key=<INSERT YOUR KEY>
+&callback=onGoogleMapResponse"></script>
+</body>
+
+</html>

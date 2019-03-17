@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300");
+@import url("middleResolution.css");
+
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.MainContainer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    animation: riseUp 1s;
+}
+
+#googleMapContainer {
+    width: 100%;
+    height: 100vh;
+}
+
+.range {
+    display: inline-block;
+    margin: 36px 20px 20px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    position: relative;
+    margin-bottom: .6em;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    font-family: sans-serif;
+    width: 300px;
+    height: 1px;
+    border: none;
+    border-radius: 3px;
+    background: #584329;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 17px;
+    width: 17px;
+    border-radius: 510%;
+    background: red;
+    border: 2px solid #515151;
+    margin-top: -8px;
+    cursor: pointer;
+}
+
+.focused::-webkit-slider-thumb {
+    -webkit-box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.clicked::-webkit-slider-thumb {
+    -webkit-transform: scale(1.5);
+}
+
+.disabled::-webkit-slider-thumb {
+    -webkit-transform: scale(0.9);
+    background: #9927fc !important;
+    background: #9927fc !important;
+    border-color: #720187 !important;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+.rangeM input[type=range].disabled::-webkit-slider-runnable-track {
+    background: #515151 !important;
+}
+
+.rangeM input[type=range]::-webkit-slider-thumb {
+    background: #3f51b5;
+    border-color: #3f51b5;
+}
+
+.range:hover input[type=range]:before {
+    color: white;
+    content: '50';
+    position: absolute;
+    font-family: Roboto Slab;
+    top: -49px;
+    background: #3f51b5;
+    padding: 8px 0 3px;
+    font-size: 14px;
+    width: 30px;
+    text-align: center;
+    border-radius: 100% 100% 0 0;
+}
+
+.range:hover input[type=range]:after {
+    content: '';
+    position: absolute;
+    top: -19px;
+    left: 50px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 8px solid #3f51b5;
+    font-family: Roboto Slab;
+}
+
+.inputGroup {
+    background-color: rgba(190, 190, 190, 0.1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.inputGroup label {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    -webkit-transition: color 200ms ease-in;
+    -o-transition: color 200ms ease-in;
+    transition: color 200ms ease-in;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+.inputGroup label:before {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+    transform: translate(-50%, -50%) scale3d(1, 1, 1);
+    -webkit-transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    z-index: -1;
+}
+
+.inputGroup label:after {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #D1D7DC;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: pointer;
+    -webkit-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+}
+
+.inputGroup input:checked~label {
+    color: #fff;
+}
+
+.inputGroup input:checked~label:before {
+    -webkit-transform: translate(-50%, -50%) scale3d(56, 56, 1);
+    transform: translate(-50%, -50%) scale3d(56, 56, 1);
+    opacity: 1;
+}
+
+.inputGroup input:checked~label:after {
+    background-color: white;
+    border-color: steelblue;
+}
+
+.inputGroup input {
+    width: 32px;
+    height: 32px;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.form {
+    padding: 0 16px;
+    max-width: 550px;
+    margin: 50px auto;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+body {
+    background-color: #D1D7DC;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: .4em;
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+code {
+    background-color: #9AA3AC;
+    padding: 0 8px;
+}
+
+.iso.face.bottom {
+    fill: brown;
+}
+
+.iso.outline {
+    stroke: white;
+    fill: none;
+    vector-effect: non-scaling-stroke;
+}
+
+.vis:hover .pipedon:not(:hover) * {
+    opacity: 0.3;
+}
+
+.label {
+    pointer-events: none;
+    text-anchor: middle;
+    font-family: Impact;
+}
+
+.stations, .stations svg {
+    position: absolute;
+}
+
+.stations svg {
+    width: 60px;
+    height: 20px;
+    padding-right: 100px;
+    font: 10px sans-serif;
+}
+
+.stations circle {
+    fill: brown;
+    stroke: black;
+    stroke-width: 1.5px;
+    /*Button*/
+}
+
+@keyframes riseUp {
+    from {
+        transform: translateY(100%)
+    }
+
+    to {
+        transform: translateY(0)
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 2560px) {
+    .IsoGraphInfo {
+        background: white;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 100;
+        border-radius: 10px;
+        transition: ease-in-out .6s;
+        padding: 1em;
+        font-size: .75em;
+        text-align: justify;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1500px) {
+    .IsoGraphInfo {
+        background: white;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 100;
+        border-radius: 10px;
+        transition: ease-in-out .6s;
+        padding: 1em;
+        font-size: .75em;
+        text-align: justify;
+    }
+}
+
+/* Agregado para el svg*/
+.iso.outline {
+    stroke: #333;
+    fill: none;
+    vector-effect: non-scaling-stroke;
+}
+
+.label {
+    pointer-events: none;
+    text-anchor: middle;
+    font-family: Impact;
+}
+
+.pipedon:hover .label {
+    fill: black;
+}
+
+.hidden {
+    display: none;
+}
+
+/*Cambios De Orbits*/
+#iso {
+    width: 100%;
+    height: 100%;
+}
+
+text {
+    pointer-events: none;
+}
+
+#buttons {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+circle.ring {
+    fill: none;
+    stroke: black;
+    stroke-width: 1px;
+    stroke-opacity: .15;
+}
+
+/* Cambio Radar*/
+/*
+#iso {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+}*/
+.HideLayoutBtn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 1%;
+    right: .5%;
+    border-radius: 10px;
+    background: rgba(138, 25, 185, 0.63);
+    transition: ease-in-out .15s;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.GoHomeBtn {
+    width: 80px;
+    height: 3em;
+    background: rgb(176, 0, 143);
+    color: white;
+    position: absolute;
+    z-index: 500;
+    top: 1%;
+    left: 1%;
+    line-height: 3em;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px black;
+    text-align: center;
+    transition: ease-in-out .2s;
+}
+
+.HideLayoutBtn:hover {
+    cursor: pointer;
+    background: rgba(138, 25, 185, 1);
+    color: rgb(255, 0, 199);
+}
+
+.GoHomeBtn:hover {
+    cursor: pointer;
+    background: rgba(138, 25, 185, 1);
+}
+
+.HideAnimation {
+    animation: dropDown .4s forwards;
+}
+
+.ShowAnimation {
+    animation: goTop .4s forwards;
+}
+
+@keyframes dropDown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(600%);
+    }
+}
+
+@keyframes goTop {
+    from {
+        transform: translateY(600%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+.DisplayNone {
+    display: none;
+}
+
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+#loaded_page {
+    top: 0;
+}
